@@ -9,7 +9,7 @@ def limpar():
     
     else:
         system('clear')
-        
+
 limpar()
 
 jogadas = 0
@@ -71,9 +71,9 @@ i = (
 while True:
     limpar()
     
-    print('\033[1;32m' + '=' * 40)
-    print('\033[1;34mSEJA BEM VINDO AO JO KEN PO 3.0')
-    print('\033[1;32m' + '=' * 40)
+    print('\033[1;37m' + '=+' * 16)
+    print('\033[1;33mSEJA BEM VINDO AO JO KEN PO 3.0 \033[m')
+    print('\033[1;37m' + '+=' * 16)
     print(' ')
     
     computador = randint(0, len(i)-1)
@@ -81,17 +81,17 @@ while True:
 #painel de escolha
     print('\033[1;37m' '=' *30)
 
-    print("""\033[1;31m           Escolha:
-\033[1;31m{0}\033[1;37m rock
-\033[1;31m{1}\033[1;37m gun
-\033[1;31m{2}\033[1;37m lightning
-\033[1;31m{3}\033[1;37m devil
-\033[1;31m{4}\033[1;37m dragon
-\033[1;31m{5}\033[1;37m water
-\033[1;31m{6}\033[1;37m air
-\033[1;31m{7}\033[1;37m paper
-\033[1;31m{8}\033[1;37m sponge
-\033[1;31m{9}\033[1;37m wolf
+    print("""\033[1;31m            Escolha:
+\033[1;31m {0}\033[1;37m rock
+\033[1;31m {1}\033[1;37m gun
+\033[1;31m {2}\033[1;37m lightning
+\033[1;31m {3}\033[1;37m devil
+\033[1;31m {4}\033[1;37m dragon
+\033[1;31m {5}\033[1;37m water
+\033[1;31m {6}\033[1;37m air
+\033[1;31m {7}\033[1;37m paper
+\033[1;31m {8}\033[1;37m sponge
+\033[1;31m {9}\033[1;37m wolf
 \033[1;31m{10}\033[1;37m tree
 \033[1;31m{11}\033[1;37m human
 \033[1;31m{12}\033[1;37m snake
@@ -100,7 +100,6 @@ while True:
     
     print('\033[1;37m' '=' *30)
     
-
     try:
         jogador = int(input('informe sua escolha: '))
     
@@ -129,37 +128,43 @@ while True:
     print('KEN')
     sleep(0.7)
     print('PO!!')
-    print('')
+    sleep(0.6)
     jogadas += 1
     
+    limpar()
     if escolha_jogador == escolha_pc:
         empates += 1
         input('\033[1;37mO jogo resultou em empate, aperte \033[1;31mENTER\033[1;37m para continuar')
 
     elif escolha_pc in regras[escolha_jogador]:
         print('\033[1;37mVitoria do \033[1;34mJOGADOR')
-        print(f'\033[1;37mO jogador\033[1;37m jogou \033[1;31m{escolha_jogador.upper()}\033[1;37m e o computador\033[1;37m jogou \033[1;31m{escolha_pc.upper()}')
+        print(f'\033[1;37mO jogador\033[1;37m jogou \033[1;35m{escolha_jogador.upper()}\033[1;37m e o computador\033[1;37m jogou \033[1;35m{escolha_pc.upper()}')
         vitorias += 1
 
     else:
         print('\033[1;37mVitoria do \033[1;34mCOMPUTADOR')
-        print(f'\033[1;37mO jogador\033[1;37m jogou \033[1;31m{escolha_jogador.upper()}\033[1;37m e o computador\033[1;37m jogou \033[1;31m{escolha_pc.upper()}')
+        print(f'\033[1;37mO jogador\033[1;37m jogou \033[1;35m{escolha_jogador.upper()}\033[1;37m e o computador\033[1;37m jogou \033[1;35m{escolha_pc.upper()}')
         derrotas += 1
 
-    continuar = str(input('\033[1;37mDigite {\033[1;31ms\033[1;37m/\033[1;31msim\033[1;37m} se deseja jogar novamente, ou \033[1;31mENTER\033[1;37m para finalizar: ')).lower().strip()
+    print('')
+    print('\033[1;32m+=' *27)
+    print('')
+    print('\033[1;37mDeseja jogar novamente?')
+    continuar = str(input('\033[1;37mDigite {\033[1;31mn\033[1;37m/\033[1;31mnão\033[1;37m} para finalizar, ou \033[1;32mENTER\033[1;37m para continuar: ')).lower().strip()
     
     continuar = continuar.replace(" ", "")
     
-    if continuar in ('s', 'sim'):
-        continue
+    if continuar in ('n', 'nao', 'não'):
+        break
 
     else:
-        break
+        continue
     
 #estatisticas de jogo      
 limpar()
-print('\033[1;31mjogo fechado')
+print('\033[1;37mjogo \033[1;31mfechado\033[1;37m')
 print('\033[1;37m' + '=' *40)
+print('')
 
 if vitorias >= 8:
     print(f'Parabens cara\033[1;31m!!\033[m, voce ganhou \033[1;32m{vitorias}\033[mx, isso é para poucos\033[1;31m!')
