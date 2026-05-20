@@ -82,21 +82,22 @@ while True:
     print('\033[1;37m' '=' *30)
 
     print("""\033[1;31m            Escolha:
-\033[1;31m {0}\033[1;37m rock
-\033[1;31m {1}\033[1;37m gun
-\033[1;31m {2}\033[1;37m lightning
-\033[1;31m {3}\033[1;37m devil
-\033[1;31m {4}\033[1;37m dragon
-\033[1;31m {5}\033[1;37m water
-\033[1;31m {6}\033[1;37m air
-\033[1;31m {7}\033[1;37m paper
-\033[1;31m {8}\033[1;37m sponge
-\033[1;31m {9}\033[1;37m wolf
-\033[1;31m{10}\033[1;37m tree
-\033[1;31m{11}\033[1;37m human
-\033[1;31m{12}\033[1;37m snake
-\033[1;31m{13}\033[1;37m scissors
-\033[1;31m{14}\033[1;37m fire""")
+\033[1;34m {0}\033[1;37m rock
+\033[1;34m {1}\033[1;37m gun
+\033[1;34m {2}\033[1;37m lightning
+\033[1;34m {3}\033[1;37m devil
+\033[1;34m {4}\033[1;37m dragon
+\033[1;34m {5}\033[1;37m water
+\033[1;34m {6}\033[1;37m air
+\033[1;34m {7}\033[1;37m paper
+\033[1;34m {8}\033[1;37m sponge
+\033[1;34m {9}\033[1;37m wolf
+\033[1;34m{10}\033[1;37m tree
+\033[1;34m{11}\033[1;37m human
+\033[1;34m{12}\033[1;37m snake
+\033[1;34m{13}\033[1;37m scissors
+\033[1;34m{14}\033[1;37m fire
+\033[1;33m{\033[1;34m15\033[1;33m}\033[1;37m exit""")
     
     print('\033[1;37m' '=' *30)
     
@@ -110,16 +111,19 @@ while True:
         sleep(2)
         continue
     
-    if jogador < 0 or jogador > len(i) - 1:
+    if jogador < 0 or jogador > len(i):
         limpar()
         sleep(0.3)
         print('\033[1;31mjogada INVALIDA')
         sleep(2)
         continue
-
+    
+    if jogador == 15:
+        break
+    
     escolha_jogador = i[jogador]
     escolha_pc = i[computador]
-
+    
     limpar()
     print(f'Voce escolheu \033[1;31m{i[jogador]}')
     sleep(0.7)
@@ -163,7 +167,7 @@ while True:
 #estatisticas de jogo      
 limpar()
 print('\033[1;37mjogo \033[1;31mfechado\033[1;37m')
-print('\033[1;37m' + '=' *40)
+print('\033[1;37m' + '_' *40)
 print('')
 
 if vitorias >= 8:
